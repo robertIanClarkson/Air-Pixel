@@ -17,7 +17,6 @@ startHour   = "";
 endSec      = "";
 endMin      = "";
 endHour     = "";
-
 # open file to for read
 print "Opening file";
 f = open('data.txt', 'r');
@@ -49,11 +48,11 @@ for line in f:
             startHour   = chunks[0];
             startMin    = chunks[1];
             startSec    = chunks[2];
-            start       = True;
+            start = True;
         else:
-            endHour     = chunks[0];
-            endMin      = chunks[1];
-            endSec      = chunks[2];
+            endHour = chunks[0];
+            endMin = chunks[1];
+            endSec = chunks[2];
 
 print "Creating Online Plots";
 
@@ -61,65 +60,62 @@ gyroXTrace = go.Scatter(
     x = dataCountObj,
     y = gyroX,
     mode = 'lines+markers',
-    name = 'gX'
+    name = 'X'
 );
 gyroYTrace = go.Scatter(
     x = dataCountObj,
     y = gyroY,
     mode = 'lines+markers',
-    name = 'gY'
+    name = 'Y'
 );
 gyroZTrace = go.Scatter(
     x = dataCountObj,
     y = gyroZ,
     mode = 'lines+markers',
-    name = 'gZ'
+    name = 'Z'
 );
 acclXTrace = go.Scatter(
     x = dataCountObj,
     y = acclX,
     mode = 'lines+markers',
-    name = 'aX'
+    name = 'X'
 );
 acclYTrace = go.Scatter(
     x = dataCountObj,
     y = acclY,
     mode = 'lines+markers',
-    name = 'aY'
+    name = 'Y'
 );
 acclZTrace = go.Scatter(
     x = dataCountObj,
     y = acclZ,
     mode = 'lines+markers',
-    name = 'aZ'
+    name = 'Z'
 );
 magnXTrace = go.Scatter(
     x = dataCountObj,
     y = magnX,
     mode = 'lines+markers',
-    name = 'mX'
+    name = 'X'
 );
 magnYTrace = go.Scatter(
     x = dataCountObj,
     y = magnY,
     mode = 'lines+markers',
-    name = 'mY'
+    name = 'Y'
 );
 magnZTrace = go.Scatter(
     x = dataCountObj,
     y = magnZ,
     mode = 'lines+markers',
-    name = 'mZ'
+    name = 'Z'
 );
 
 gyro = [gyroXTrace, gyroYTrace, gyroZTrace];
 accl = [acclXTrace, acclYTrace, acclZTrace];
 magn = [magnXTrace, magnYTrace, magnZTrace];
-everyone = [gyroXTrace, gyroYTrace, gyroZTrace, acclXTrace, acclYTrace, acclZTrace, magnXTrace, magnYTrace, magnZTrace]
 
-# py.plot(gyro, filename='Gyroscrope_test_5v');
-# py.plot(accl, filename='Accelerometer_rate_CTRL_0_filters');
+# py.plot(gyro, filename='Gyroscrope');
+py.plot(accl, filename='Accelerometer_rate_25Hz_blocked');
 # py.plot(magn, filename='Magnetometer');
-py.plot(everyone, filename='FLIP_avg_5_x10pace');
-
 print "Plots Created";
